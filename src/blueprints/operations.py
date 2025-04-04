@@ -66,3 +66,8 @@ def check_blacklist_entry(email):
 
     except Exception as e:
         return jsonify({"msg": f"Error inesperado: {str(e)}"}), 500
+
+# GET /ping - Healthcheck
+@operations_blueprint.route('/ping', methods=['GET'])
+def healthcheck():
+    return jsonify({"status": "ok"}), 200
