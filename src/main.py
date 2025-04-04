@@ -2,7 +2,6 @@ from flask import Flask, jsonify
 from .blueprints.operations import operations_blueprint
 from .commands.extensions import db
 from .errors.errors import ApiError
-from .models.model import List
 import os
 
 
@@ -10,7 +9,10 @@ def create_app():
     app = Flask(__name__)
 
     # Configuración base de datos
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///list.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = (
+        f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}"
+        f"@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
+    )
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)
@@ -34,7 +36,6 @@ def create_app():
 
     return app
 
-# Ejecutar app localmente
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000)
