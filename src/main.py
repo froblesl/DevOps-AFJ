@@ -2,16 +2,14 @@ from flask import Flask, jsonify
 from .blueprints.operations import operations_blueprint
 from .commands.extensions import db
 from .errors.errors import ApiError
-import os
 
 
 def create_app():
     app = Flask(__name__)
 
-    # Configuración base de datos
+    # Configuración directa de la base de datos (sin variables de entorno)
     app.config['SQLALCHEMY_DATABASE_URI'] = (
-        f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}"
-        f"@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
+        "postgresql://flask_user:flask_pass@db.coroc8cawezw.us-east-1.rds.amazonaws.com:5432/postgres"
     )
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -35,6 +33,7 @@ def create_app():
         return jsonify(response), err.code
 
     return app
+
 
 if __name__ == '__main__':
     app = create_app()
