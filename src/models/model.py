@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import declarative_base
 from datetime import datetime
 import uuid
-from ..commands.extensions import db
+from commands.extensions import db
 
 class List(db.Model):
     __tablename__ = "list"

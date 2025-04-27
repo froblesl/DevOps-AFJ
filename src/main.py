@@ -1,11 +1,12 @@
 from flask import Flask, jsonify
-from .blueprints.operations import operations_blueprint
-from .commands.extensions import db
-from .errors.errors import ApiError
+from blueprints.operations import operations_blueprint
+from commands.extensions import db
+from errors.errors import ApiError
 
 
-def create_app():
+def create_app(testing=False):
     app = Flask(__name__)
+    app.config['TESTING'] = testing
 
     # Configuración directa de la base de datos (sin variables de entorno)
     app.config['SQLALCHEMY_DATABASE_URI'] = (
