@@ -1,9 +1,9 @@
 from flask import Flask, jsonify, request, Blueprint
-from ..commands.create import Create
+from commands.create import Create
 import uuid
-from ..commands.extensions import db
-from ..models.model import List
-from ..commands.config import validar_token
+from commands.extensions import db
+from models.model import List
+from commands.config import validar_token
 
 
 operations_blueprint = Blueprint('operations', __name__)

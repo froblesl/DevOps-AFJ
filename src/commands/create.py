@@ -1,6 +1,6 @@
 import logging
 from .extensions import db
-from ..models.model import List
+from models.model import List
 import uuid
 
 logger = logging.getLogger(__name__)
