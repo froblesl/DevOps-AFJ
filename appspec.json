@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "Resources": [
+    {
+      "TargetService": {
+        "Type": "AWS::ECS::Service",
+        "Properties": {
+          "TaskDefinition": "tarea_entrega3",
+          "LoadBalancerInfo": {
+            "ContainerName": "contenedorEntrega3",
+            "ContainerPort": 5000
+          }
+        }
+      }
+    }
+  ]
+}
