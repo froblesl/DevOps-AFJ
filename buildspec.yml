@@ -26,8 +26,6 @@ phases:
       - docker push 888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest
       - echo Writing image definitions file...
       - printf '[{"name":"contenedorEntrega3","imageUri":"888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest"}]' > imagedefinitions.json
-      - cp appspec.json .
-      - cp taskdef.json .
       - cat imagedefinitions.json
 
 artifacts:
