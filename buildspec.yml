@@ -32,11 +32,5 @@ artifacts:
   files:
     - imagedefinitions.json
     - imageDetail.json
-  secondary-artifacts:
-    DefinirionArtifact:
-      files:
-        - appspec.json
-        - taskdef.json
-    ImageArtifact:
-      files:
-        - imageDetail.json
+    - appspec.json
+    - taskdef.json
