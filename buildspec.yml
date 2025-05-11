@@ -6,7 +6,7 @@ phases:
       python: 3.9
     commands:
       - pip install --upgrade pip
-      - pip install pytest
+      - pip install -r requirements.txt
   pre_build:
     commands:
       - echo logging in to Amazon ECR...
