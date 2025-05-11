@@ -33,9 +33,13 @@ phases:
       - cat artifacts/imagedefinitions.json
 
 artifacts:
-  base-directory: artifacts
   files:
-    - imagedefinitions.json
-    - imageDetail.json
-    - appspec.json
-    - taskdef.json
+    - '**/*'
+
+secondary-artifacts:
+  BuildArtifact:
+    base-directory: artifacts
+    files:
+      - imagedefinitions.json
+      - appspec.json
+      - taskdef.json
