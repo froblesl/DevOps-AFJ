@@ -9,7 +9,7 @@
           "containerPort": 5000
         }
       ],
-      "image": "ENTREGA3_IMAGE",
+      "image": "<ENTREGA3_IMAGE>",
       "essential": true,
       "name": "contenedorEntrega3"
     }
