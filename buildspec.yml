@@ -1,6 +1,12 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - pip install --upgrade pip
+      - pip install pytest
   pre_build:
     commands:
       - echo logging in to Amazon ECR...
@@ -19,8 +25,8 @@ phases:
       - echo Pushing the Docker image...
       - docker push 888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest
       - echo Writing image definitions file...
-      - printf '[{"name":"entrega3","imageUri":"888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest"}]' > imagedefinitions.json
-      - printf '[{"ImageURI":"888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest"}]' > imageDetails.json
+      - printf '[{"name":"contenedorEntrega3","imageUri":"888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest"}]' > imagedefinitions.json
+      - printf '[{"ImageURI":"888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest"}]' > imageDetail.json
       - cat imagedefinitions.json
 artifacts:
   files:
