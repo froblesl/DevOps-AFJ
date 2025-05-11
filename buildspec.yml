@@ -7,18 +7,21 @@ phases:
     commands:
       - pip install --upgrade pip
       - pip install -r requirements.txt
+
   pre_build:
     commands:
-      - echo logging in to Amazon ECR...
+      - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 888577040784.dkr.ecr.us-east-1.amazonaws.com
       - echo "[TEST] Ejecutando pruebas unitarias..."
       - PYTHONPATH=src pytest src/tests/ --junitxml=report.xml
+
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t entrega3 .
       - docker tag entrega3:latest 888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest
+
   post_build:
     commands:
       - echo Build completed on `date`
@@ -30,7 +33,8 @@ phases:
       - ls -la
 
 artifacts:
+  base-directory: .
   files:
-    - imagedefinitions.json
     - appspec.json
     - taskdef.json
+    - imagedefinitions.json
