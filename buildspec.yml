@@ -25,21 +25,20 @@ phases:
       - echo Pushing the Docker image...
       - docker push 888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest
       - echo Writing image definitions file...
-      - mkdir -p artifacts
-      - printf '[{"name":"contenedorEntrega3","imageUri":"888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest"}]' > artifacts/imagedefinitions.json
-      - printf '[{"ImageURI":"888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest"}]' > artifacts/imageDetail.json
-      - cp appspec.json artifacts/
-      - cp taskdef.json artifacts/
-      - cat artifacts/imagedefinitions.json
+      - printf '[{"name":"contenedorEntrega3","imageUri":"888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest"}]' > imagedefinitions.json
+      - printf '[{"ImageURI":"888577040784.dkr.ecr.us-east-1.amazonaws.com/entrega3:latest"}]' > imageDetail.json
+      - cat imagedefinitions.json
 
 artifacts:
   files:
     - '**/*'
-
+    - imagedefinitions.json
+    - imageDetail.json
 secondary-artifacts:
-  BuildArtifact:
-    base-directory: artifacts
+  DefinitionArtifact:
     files:
-      - imagedefinitions.json
       - appspec.json
       - taskdef.json
+  ImageArtifact:
+    files:
+      - imageDetail.json
