@@ -1,17 +1,17 @@
 {
-  "version": 1,
-  "Resources": [
-    {
-      "TargetService": {
-        "Type": "AWS::ECS::Service",
-        "Properties": {
-          "TaskDefinition": "tarea_entrega3",
-          "LoadBalancerInfo": {
-            "ContainerName": "contenedorEntrega3",
-            "ContainerPort": 5000
+    "version": 1,
+    "Resources": [
+      {
+        "TargetService": {
+          "Type": "AWS::ECS::Service",
+          "Properties": {
+            "TaskDefinition": "arn:aws:ecs:us-east-1:777447255488:task-definition/task-app-python:1",
+            "LoadBalancerInfo": {
+              "ContainerName": "contenedor-entrega3",
+              "ContainerPort": 5000
+            }
           }
         }
       }
-    }
-  ]
-}
+    ]
+  }
