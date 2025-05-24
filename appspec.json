@@ -5,7 +5,7 @@
         "TargetService": {
           "Type": "AWS::ECS::Service",
           "Properties": {
-            "TaskDefinition": "arn:aws:ecs:us-east-1:777447255488:task-definition/task-app-python:4",
+            "TaskDefinition": "arn:aws:ecs:us-east-1:777447255488:task-definition/task-app-python:5",
             "LoadBalancerInfo": {
               "ContainerName": "contenedor-entrega3",
               "ContainerPort": 5000
