@@ -10,7 +10,7 @@ def create_app(testing=False):
 
     # Configuración directa de la base de datos (sin variables de entorno)
     app.config['SQLALCHEMY_DATABASE_URI'] = (
-        "postgresql://flask_user:flask_pass@db.coroc8cawezw.us-east-1.rds.amazonaws.com:5432/postgres"
+        "postgresql://postgres:postgres@postgres.cyzaayec84hz.us-east-1.rds.amazonaws.com:5432/postgres"
     )
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
